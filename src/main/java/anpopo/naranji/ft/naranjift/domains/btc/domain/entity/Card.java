@@ -11,34 +11,31 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
 
 @AllArgsConstructor
 @NoArgsConstructor(access = lombok.AccessLevel.PROTECTED)
 @Getter
-@Table(name = "topics")
+@Table(name = "cards")
 @Entity
-public class Topic extends BaseAuditEntity {
+public class Card extends BaseAuditEntity {
 
     @Id
-    @Column(name = "topic_seq", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long topicSeq;
+    private Long cardSeq;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Column(name = "card_name", nullable = false)
+    private String cardName;
 
-    @Column(name = "board_seq", nullable = false)
-    private Long boardSeq;
+    @Column(name = "card_content", nullable = false)
+    private String cardContent;
 
-    @Column(name = "now_using", nullable = false)
-    @ColumnDefault("true")
-    private boolean nowUsing;
+    @Column(name = "card_image_url")
+    private String cardImageUrl;
 
     @Builder
-    public Topic(String name, Long boardSeq) {
-        this.name = name;
-        this.boardSeq = boardSeq;
-        this.nowUsing = true;
+    public Card(String cardName, String cardContent, String cardImageUrl) {
+        this.cardName = cardName;
+        this.cardContent = cardContent;
+        this.cardImageUrl = cardImageUrl;
     }
 }
