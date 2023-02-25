@@ -16,7 +16,7 @@ public class BoardPersistence {
         return boardRepository.save(board);
     }
 
-    public Optional<Board> findByBoardSeqAndIsUseTrue(Long boardSeq) {
-        return boardRepository.findByBoardSeqAndUseTrue(boardSeq);
+    public Optional<Board> findByBoardSeqAndNowUsingTrue(Long boardSeq) {
+        return boardRepository.findByBoardSeqAndNowUsingTrue(boardSeq);
     }
 }

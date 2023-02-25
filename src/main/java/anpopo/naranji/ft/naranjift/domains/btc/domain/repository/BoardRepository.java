@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BoardRepository extends JpaRepository<Board, Long> {
 
-    Optional<Board> findByBoardSeqAndUseTrue(Long boardSeq);
+    Optional<Board> findByBoardSeqAndNowUsingTrue(Long boardSeq);
 }

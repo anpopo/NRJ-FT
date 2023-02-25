@@ -5,20 +5,20 @@ import anpopo.naranji.ft.naranjift.domains.btc.domain.BoardPersistence;
 import anpopo.naranji.ft.naranjift.domains.btc.domain.TopicPersistence;
 import anpopo.naranji.ft.naranjift.domains.btc.domain.entity.Topic;
 import anpopo.naranji.ft.naranjift.domains.btc.exception.NRJCommonException;
-import anpopo.naranji.ft.naranjift.domains.btc.service.annotation.SecondServiceLayer;
 import anpopo.naranji.ft.naranjift.domains.btc.service.model.req.CreateTopicRequestModel;
 import anpopo.naranji.ft.naranjift.domains.btc.service.model.res.CreateTopicResponseModel;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
-@SecondServiceLayer
+@Service
 public class CreateTopicService {
 
     private final BoardPersistence boardPersistence;
     private final TopicPersistence topicPersistence;
 
     public CreateTopicResponseModel createTopic(CreateTopicRequestModel createTopicRequestModel) {
-        Topic topic = boardPersistence.findByBoardSeqAndIsUseTrue(createTopicRequestModel.getBoardSeq())
+        Topic topic = boardPersistence.findByBoardSeqAndNowUsingTrue(createTopicRequestModel.getBoardSeq())
             .map(board -> topicPersistence.save(
                 Topic.builder()
                     .boardSeq(board.getBoardSeq())

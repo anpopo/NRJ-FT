@@ -31,14 +31,14 @@ public class Topic extends BaseAuditEntity {
     @Column(name = "board_seq", nullable = false)
     private Long boardSeq;
 
-    @Column(name = "use", nullable = false)
+    @Column(name = "now_using", nullable = false)
     @ColumnDefault("true")
-    private boolean isUse;
+    private boolean nowUsing;
 
     @Builder
     public Topic(String name, Long boardSeq) {
         this.name = name;
         this.boardSeq = boardSeq;
-        isUse = true;
+        nowUsing = true;
     }
 }

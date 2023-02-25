@@ -2,13 +2,13 @@ package anpopo.naranji.ft.naranjift.domains.btc.service.under;
 
 import anpopo.naranji.ft.naranjift.domains.btc.domain.BoardPersistence;
 import anpopo.naranji.ft.naranjift.domains.btc.domain.entity.Board;
-import anpopo.naranji.ft.naranjift.domains.btc.service.annotation.SecondServiceLayer;
 import anpopo.naranji.ft.naranjift.domains.btc.service.model.req.CreateBoardRequestModel;
 import anpopo.naranji.ft.naranjift.domains.btc.service.model.res.CreateBoardResponseModel;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
-@SecondServiceLayer
+@Service
 public class CreateBoardService {
 
     private final BoardPersistence boardPersistence;

@@ -28,13 +28,13 @@ public class Board extends BaseAuditEntity {
     @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "use", nullable = false)
+    @Column(name = "now_using", nullable = false)
     @ColumnDefault("true")
-    private boolean isUse;
+    private boolean nowUsing;
 
     @Builder
     public Board(String title) {
         this.title = title;
-        this.isUse = true;
+        this.nowUsing = true;
     }
 }
