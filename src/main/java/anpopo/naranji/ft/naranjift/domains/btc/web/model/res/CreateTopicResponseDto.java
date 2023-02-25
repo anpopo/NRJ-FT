@@ -7,5 +7,5 @@ import lombok.Getter;
 @Getter
 public class CreateTopicResponseDto {
     private Long topicSeq;
-    private Long name;
+    private String name;
 }
