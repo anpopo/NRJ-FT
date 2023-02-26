@@ -7,4 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface TopicRepository extends JpaRepository<Topic, Long> {
 
     Optional<Topic> findByTopicSeqAndNowUsingTrue(Long topicSeq);
+
+    Optional<Topic> findByBoardSeqAndTopicSeqAndNowUsingTrue(Long boardSeq, Long topicSeq);
 }

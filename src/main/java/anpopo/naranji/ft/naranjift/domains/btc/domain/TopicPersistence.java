@@ -18,4 +18,8 @@ public class TopicPersistence {
     public Optional<Topic> findByTopicSeqAndNowUsingTrue(Long topicSeq) {
         return topicRepository.findByTopicSeqAndNowUsingTrue(topicSeq);
     }
+
+    public Optional<Topic> findByBoardSeqAndTopicSeqAndNowUsingTrue(Long boardSeq, Long topicSeq) {
+        return topicRepository.findByBoardSeqAndTopicSeqAndNowUsingTrue(boardSeq, topicSeq);
+    }
 }

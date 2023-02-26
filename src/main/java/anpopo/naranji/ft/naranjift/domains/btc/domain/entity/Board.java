@@ -12,10 +12,12 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicUpdate;
 
 @AllArgsConstructor
 @NoArgsConstructor(access = lombok.AccessLevel.PROTECTED)
 @Getter
+@DynamicUpdate
 @Table(name = "boards")
 @Entity
 public class Board extends BaseAuditEntity {
@@ -36,5 +38,9 @@ public class Board extends BaseAuditEntity {
     public Board(String title) {
         this.title = title;
         this.nowUsing = true;
+    }
+
+    public void updateTitle(String title) {
+        this.title = title;
     }
 }
